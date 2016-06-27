@@ -4,7 +4,6 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 use Symfony\Component\HttpFoundation\File\UploadedFile;
-use Image;
 class FlyerPhoto extends Model
 {
 	protected $table = 'flyer_photos';
@@ -15,12 +14,6 @@ class FlyerPhoto extends Model
 
 	protected $file;
 
-	protected static function boot()
-	{
-		static::creating(function($photo){
-			return $photo->upload();
-		});
-	}
 	/**
 	 * A flyerphoto belongs to a flyer
 	 * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
@@ -30,52 +23,16 @@ class FlyerPhoto extends Model
 		return $this->belongsTo('App\Flyer');
 	}
 
-	public static function fromFile($file)
+	public function setNameAttribute($name)
 	{
-		$photo = new static;
-		$photo->file = $file;
+		$this->attributes['name'] = $name;
 
-		return $photo->fill([
-			'name' => $photo->fileName(),
-			'photo_path' => $photo->filePath(),
-			'thumb_path' => $photo->thumbPath(),
-		]);
+		$this->photo_path = $this->baseDir .'/'.$name;
+		$this->thumb_path = $this->baseDir .'/tp'.$name;
 	}
 
-	public function fileName()
+	public function baseDir()
 	{
-		$name = sha1(
-			time() . $this->file->getClientOriginalName()
-		);
-
-		$extension = $this->file->getClientOriginalExtension();
-
-		return "{$name}.{$extension}";
+		return $this->baseDir;
 	}
-
-	public function filePath()
-	{
-		return $this->baseDir . '/' . $this->fileName();
-	}
-
-	public function thumbPath()
-	{
-		return $this->baseDir . '/tp-' . $this->fileName();
-	}
-
-	public function upload()
-	{
-		$this->file->move($this->baseDir, $this->fileName());
-
-		$this->makeThumb();
-
-		return $this;
-	}
-	protected function makeThumb()
-	{
-		Image::make($this->filePath())
-			->fit(150)
-			->save($this->thumbPath());
-	}
-
 }

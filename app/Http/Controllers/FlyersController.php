@@ -50,9 +50,12 @@ class FlyersController extends Controller
 	 */
 	public function store(Requests\FlyerRequest $request)
 	{
-		Flyer::create($request->all());
-
-		return redirect()->back();
+		$flyer = $this->user->publish(
+			new Flyer($request->all())
+		);
+		flash()->success('success', 'Created Flyer success');
+		return redirect(flyer_path($flyer));
+		//return redirect()->route('show_flyer_info', ['zip' => $flyer->zip, 'street'=>$flyer->street]);
 	}
 
 	/**
@@ -104,15 +107,7 @@ class FlyersController extends Controller
 		//
 	}
 
-	/**
-	 * @param string        $zip
-	 * @param string        $street
-	 * @param ChangeFlyerRequest $request
-	 */
-	public function addPhotos($zip, $street, Requests\ChangeFlyerRequest $request)
-	{
-		$photo = FlyerPhoto::fromFile($request->file('photo'));
-		//$photo = $this->makePhoto($request->file('photo'));
-		Flyer::locatedAt($zip, $street)->addPhoto($photo);
-	}
+
+
+
 }

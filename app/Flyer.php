@@ -66,6 +66,6 @@ class Flyer extends Model
 
 	public function addPhoto(FlyerPhoto $photo)
 	{
-		$this->photos()->save($photo);
+		return $this->photos()->save($photo);
 	}
 }
