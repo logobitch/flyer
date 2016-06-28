@@ -11,6 +11,16 @@
 |
 */
 
+
+Route::get('/test', function(){
+	return view('weltest');
+});
+
+Route::get('feedback', function(){
+	return 'You have been clicked .punk!';
+});
+
+
 Route::get('/', 'PagesController@home');
 
 //登录相关

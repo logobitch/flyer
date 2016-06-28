@@ -13,7 +13,9 @@ class ExampleTest extends TestCase
      */
     public function testBasicExample()
     {
-        $this->visit('/')
-             ->see('Laravel 5');
+	    $this->visit('/test')
+		    ->click('Click me')
+		    ->see('You have been clicked .punk!')
+		    ->seePageIs('/feedback');
     }
 }
