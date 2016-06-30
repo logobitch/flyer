@@ -13,12 +13,9 @@
 
 
 Route::get('/test', function(){
-	return view('weltest');
+	return view('zctest');
 });
 
-Route::get('feedback', function(){
-	return 'You have been clicked .punk!';
-});
 
 
 Route::get('/', 'PagesController@home');
