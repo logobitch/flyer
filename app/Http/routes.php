@@ -31,6 +31,9 @@ Route::post('auth/register', 'Auth\AuthController@postRegister');
 
 Route::resource('flyers' , 'FlyersController');
 
+Route::resource('article', 'ArticleController');
+
+
 Route::get('{zip}/{street}', ['as'=> 'show_flyer_info','uses'=> 'FlyersController@show']);
 
 
