@@ -49,8 +49,8 @@
 				</li>
 			</ul>
 			<div class="nav navbar-nav navbar-right">
-				<a href="auth/login" class="btn btn-default navbar-btn">Sign In</a>
-				<a href="auth/register" class="btn btn-primary navbar-btn">Sign Up</a>
+				<a href="/auth/login" class="btn btn-default navbar-btn">Sign In</a>
+				<a href="/auth/register" class="btn btn-primary navbar-btn">Sign Up</a>
 			</div>
 		</div><!-- /.navbar-collapse -->
 	</div><!-- /.container-fluid -->

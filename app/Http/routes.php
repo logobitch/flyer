@@ -12,9 +12,7 @@
 */
 
 
-Route::get('/test', function(){
-	return view('zctest');
-});
+Route::get('/test', 'TestController@index');
 
 
 
@@ -33,10 +31,12 @@ Route::resource('flyers' , 'FlyersController');
 
 Route::resource('article', 'ArticleController');
 
+Route::get('article', ['as'=>'add_photo_article', 'uses'=>'PhotosController@store']);
 
 Route::get('{zip}/{street}', ['as'=> 'show_flyer_info','uses'=> 'FlyersController@show']);
 
 
 Route::post('{zip}/{street}/photos', ['as'=>'store_photo_path', 'uses'=>'PhotosController@store']);
+
 
 

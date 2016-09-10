@@ -58,18 +58,52 @@
 
 
 @section('slider')
-		<div class="banner main-banner" id="b04">
-			<ul>
-				<li><img src="http://www.jq22.com/demo/unslider-150203225543/03.jpg" alt="" width="100%"
-				         height="480"></li>
-				<li><img src="http://www.jq22.com/demo/unslider-150203225543/01.jpg" alt="" width="100%"
-				         height="480"></li>
-				<li><img src="http://www.jq22.com/demo/unslider-150203225543/02.jpg" alt="" width="100%"
-				         height="480"></li>
-				<li><img src="http://www.jq22.com/demo/unslider-150203225543/04.jpg" alt="" width="100%"
-				         height="480"></li>
-			</ul>
+		<div class="banner main-banner">
+            <div  id="b04">
+                <ul>
+                    <li><img src="http://www.jq22.com/demo/unslider-150203225543/03.jpg" alt="" width="100%"
+                             height="480"></li>
+                    <li><img src="http://www.jq22.com/demo/unslider-150203225543/01.jpg" alt="" width="100%"
+                             height="480"></li>
+                    <li><img src="http://www.jq22.com/demo/unslider-150203225543/02.jpg" alt="" width="100%"
+                             height="480"></li>
+                    <li><img src="http://www.jq22.com/demo/unslider-150203225543/04.jpg" alt="" width="100%"
+                             height="480"></li>
+                </ul>
+            </div>
+            <div class="search-container container">
+                <div class="row">
+                    <div class="checkbox col-md-10">
+                        <label for="all">
+                            <input type="radio" name="search" id="all">全部
+                        </label>
+                        <label for="hotel">
+                            <input type="radio" name="search" id="hotel">酒店
+                        </label>
+                        <label for="destination">
+                            <input type="radio" name="search" id="destination">目的地
+                        </label>
+                        <label for="shop">
+                            <input type="radio" name="search" id="shop">目的地商城
+                        </label>
+                    </div>
+                </div>
+                <div class="search-content">
+                    <div class="row">
+                        <div class="col-md-10">
+                            <input type="text" class="form-control" placeholder="搜索目的地/攻略/酒店/旅行特价">
+                        </div>
+                        <div class="col-md-2">
+                            <a href="" class="btn btn-primary">提交</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="slider-intro">
+                图片来自于<a>西安</a>，此目的地共收藏了<a>1155105</a>张<a>西安</a>图片。本片由<a>空中飞翔的珞珞</a>荣誉出品！
+            </div>
 		</div>
+
 		@stop
 
 
